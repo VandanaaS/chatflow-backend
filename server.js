@@ -10,7 +10,15 @@ require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, { cors: { origin: '*' } });
+const io = new Server(server, {
+  cors: {
+    origin: [
+      "https://mernchatapp.netlify.app"
+    ],
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
