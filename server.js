@@ -6,6 +6,7 @@ const socketIo = require('socket.io');
 const cors = require('cors');
 const routes = require('./routes');
 const initSocket = require('./socket');
+const { Server } = require('socket.io');
 require('dotenv').config();
 
 const app = express();
